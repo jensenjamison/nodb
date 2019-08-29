@@ -1,1 +1,35 @@
 
+.nav-bar {
+    height: 7vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    background-color: rgb(34, 34, 34);
+    
+  }
+  
+  .home-button {
+    background-color: transparent;
+    color: white;
+    font-size: 2.5vw;
+    font-size: 2.5vh;
+    border-radius: 15px;
+    font-family: 'Livvic', sans-serif;
+  }
+  
+  .nav-right {
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    height: auto;
+  }
+  
+  .servers-button, .kits-button, .contact-button {
+    background-color: transparent;
+    color: white;
+    font-size: 2.5vw;
+    font-size: 2.5vh;
+    border-radius: 15px;
+    font-family: 'Livvic', sans-serif;
+  }
