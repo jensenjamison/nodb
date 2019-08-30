@@ -31,22 +31,23 @@ export default class Servers extends Component {
                 return(
                     <section className="servers-folder">
                         <div className="servers-file">
+                            <img src={val.image} className="image-servers-file"></img>
+                            <div className="title-server-file">
                             <h1>{val.name}</h1>
-                            <a href={val.information} target="_blank"><button className="information-button">Information</button></a>
-                            <a href={val.kits} target="_blank"><button className="kits-button-2">Kits</button></a>
-                            
+                            </div>
+                            <div className="information-servers-file">
+                                <a href={val.information} target="_blank"><button className="information-button">Information</button></a>
+                                <a href={val.kits} target="_blank"><button className="kits-button-2">Kits</button></a>
+                            </div>
                         </div>
                     </section>
                 )
             })
-            
             return(
-                
-                
 
                 <header className="background-2">
-                    <section className="servers-list">
-                        <div className="server-1">
+                    {/* <section className="servers-list"> */}
+                        {/* <div className="server-1">
                             <div className="server-title">
                             <h1>---Blanks--- Server 1</h1>
                             </div>
@@ -56,9 +57,9 @@ export default class Servers extends Component {
                             <button className="kits-button-2">Kits</button>
                             </div>
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="server-2">
+                        {/* <div className="server-2">
                             <div className="server-title">
                             <h1>---Blanks--- Server 2</h1>
                             </div>
@@ -68,9 +69,9 @@ export default class Servers extends Component {
                             <button className="kits-button-2">Kits</button>
                             </div>
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="server-3">
+                        {/* <div className="server-3">
                             <div className="server-title">
                             <h1>---Blanks--- Server 3</h1>
                             </div>
@@ -80,22 +81,15 @@ export default class Servers extends Component {
                             <button className="kits-button-2">Kits</button>
                             </div>
                             </div>
-                        </div>
-                    </section>
+                        </div> */}
+                    {/* </section> */}
                     <section>
-                        {/* {this.state.servers.map((server, index) => (
-                            <Add
-                            name={server.name}
-                            image={server.image}
-                            information={server.information}
-                            kits={server.kits}
-                            index={index}
-                            />
-                        ))} */}
                         {add}
                     </section>
                     <section className="add-server">
+                        <div className="add-server-file">
                         <button onClick = {this.props.updateAdd} className="add-server-button">Add Server</button>
+                        </div>
                     </section>
                 </header>
             )

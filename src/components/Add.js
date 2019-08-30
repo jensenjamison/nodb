@@ -48,12 +48,16 @@ render(){
             <div className="form-1">
                 <form className="add-form-1">
                     <input onChange = {(e) => this.setState({title: e.target.value}) } className="server-title-create" name = "server"  placeholder="Server Title" ></input>
-                    <input onChange = {(e) => this.setState({information: e.target.value})} name = "information" className="information-button-create" placeholder="Information input"></input>
-                    <input onChange = {(e) => this.setState({kits: e.target.value})} name = "kits" className="kits-button-create" placeholder="Kits link here"></input>
-                    <input onChange = {(e) => this.setState({image: e.target.value})} name = "image" placeholder="Image Url" ></input>
+                    <input onChange = {(e) => this.setState({information: e.target.value})} name = "information" className="information-button-create" placeholder="Information Link Here"></input>
+                    <input onChange = {(e) => this.setState({kits: e.target.value})} name = "kits" className="kits-button-create" placeholder="Kits Link Here"></input>
+                    <input onChange = {(e) => this.setState({image: e.target.value})} name = "image" placeholder="Image Url Here" ></input>
                 </form>
             </div>
-                <button onClick = { this.addServers } >Submit</button>
+            <div className="submit">
+                <div className="submit-button">
+                    <button className="submit-button-edit" onClick = { this.addServers } >Submit</button>
+                </div>
+            </div>
         </section>
         
     )
