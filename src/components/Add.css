@@ -22,10 +22,10 @@ align-items: center;
     
 }
 
-.information-button-create, .kits-button-create {
+/* .information-button-create, .kits-button-create {
     background-color: transparent;
     border: solid rgb(83, 83, 83);
     font-size: 20px;
     border-radius: 10px;
     font-weight: bold;
-}
+} */

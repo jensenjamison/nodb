@@ -10,13 +10,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       section: "home",
-      add: false
+      add: false,
+      servers: []
     };
     this.updateAdd = this.updateAdd.bind(this);
+    this.updateServers = this.updateServers.bind(this)
   }
-    updateAdd(){
-      this.setState({add: !this.state.add})
-    }
+  updateAdd(){
+    this.setState({add: !this.state.add})
+  }
+
+  updateServers(servers){
+    this.setState({servers: servers })
+  }
 
   render() {
     return (
@@ -29,12 +35,12 @@ class App extends React.Component {
             <button className="contact-button">Contact</button>
           </div>
         </nav>
-          {this.state.section === "servers" ? <Servers updateAdd = {this.updateAdd} /> : null}
+          {this.state.section === "servers" ? <Servers updateAdd = {this.updateAdd} servers = {this.state.servers} /> : null}
           {this.state.section === "home" ? (
           <Home changeSection={() => this.setState({ section: "servers" })} />
         ) : null}
 
-          {this.state.add === true ? <Add /> : null}
+          {this.state.add === true ? <Add updateServers = {this.updateServers} /> : null}
           
       </div>
       

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./Servers.css";
 import axios from "axios";
-
+import Add from "./Add";
 
 export default class Servers extends Component {
     constructor(props) {
@@ -22,11 +22,28 @@ export default class Servers extends Component {
             this.setState({ servers: response.data });
           })
           .catch(err => {
+              console.log(err)
           });
         }
         render(){
             console.log(this.state.servers)
+        let add = this.props.servers.map(val => {
+                return(
+                    <section className="servers-folder">
+                        <div className="servers-file">
+                            <h1>{val.name}</h1>
+                            <a href={val.information} target="_blank"><button className="information-button">Information</button></a>
+                            <a href={val.kits} target="_blank"><button className="kits-button-2">Kits</button></a>
+                            
+                        </div>
+                    </section>
+                )
+            })
+            
             return(
+                
+                
+
                 <header className="background-2">
                     <section className="servers-list">
                         <div className="server-1">
@@ -65,7 +82,18 @@ export default class Servers extends Component {
                             </div>
                         </div>
                     </section>
-
+                    <section>
+                        {/* {this.state.servers.map((server, index) => (
+                            <Add
+                            name={server.name}
+                            image={server.image}
+                            information={server.information}
+                            kits={server.kits}
+                            index={index}
+                            />
+                        ))} */}
+                        {add}
+                    </section>
                     <section className="add-server">
                         <button onClick = {this.props.updateAdd} className="add-server-button">Add Server</button>
                     </section>

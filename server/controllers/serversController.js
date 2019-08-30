@@ -1,4 +1,4 @@
-let servers = [{name: "", information: "", kits: ""}]
+let servers = []
 
 const getServers = (req, res) => {
     res.json(servers)
