@@ -2,16 +2,21 @@ import React from 'react';
 import './App.css';
 import Home from "./components/Home";
 import Servers from "./components/Servers"
-
+import Add from "./components/Add"
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      section: "home"
+      section: "home",
+      add: false
     };
+    this.updateAdd = this.updateAdd.bind(this);
   }
+    updateAdd(){
+      this.setState({add: !this.state.add})
+    }
 
   render() {
     return (
@@ -24,11 +29,16 @@ class App extends React.Component {
             <button className="contact-button">Contact</button>
           </div>
         </nav>
-          {this.state.section === "servers" ? <Servers /> : null}
+          {this.state.section === "servers" ? <Servers updateAdd = {this.updateAdd} /> : null}
           {this.state.section === "home" ? (
           <Home changeSection={() => this.setState({ section: "servers" })} />
         ) : null}
+
+          {this.state.add === true ? <Add /> : null}
+          
       </div>
+      
+      
     );
   }
 }

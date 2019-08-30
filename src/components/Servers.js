@@ -9,12 +9,11 @@ export default class Servers extends Component {
         this.state = {
             servers: []
         }
-        // this.updateServers = this.updateServers.bind(this);
     }
 
-    updateWishes(servers) {
-        this.setState({ servers: servers });
-      }
+    // updateServers(servers) {
+    //     this.setState({ servers: servers });
+    //   }
 
     componentDidMount() {
         axios
@@ -23,10 +22,10 @@ export default class Servers extends Component {
             this.setState({ servers: response.data });
           })
           .catch(err => {
-            console.log(err);
           });
         }
         render(){
+            console.log(this.state.servers)
             return(
                 <header className="background-2">
                     <section className="servers-list">
@@ -67,11 +66,12 @@ export default class Servers extends Component {
                         </div>
                     </section>
 
+                    <section className="add-server">
+                        <button onClick = {this.props.updateAdd} className="add-server-button">Add Server</button>
+                    </section>
                 </header>
             )
         }
-
-
 
 
 

@@ -4,7 +4,6 @@ import './Home.css'
 
 export default function home(props) {
     return (
-        <body>
             <div className="background-1">
                 <section className="middle-front-page">
                     <div className="middle-front-page-info">
@@ -14,7 +13,6 @@ export default function home(props) {
                 </section>
             </div>
 
-        </body>
     )
 }
 
