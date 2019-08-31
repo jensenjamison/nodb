@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import "./Add.css";
-import axios from "axios";
-import { runInThisContext } from "vm";
+import Axios from "axios";
 
 
 export default class Add extends Component {
@@ -29,7 +28,7 @@ export default class Add extends Component {
             kits: this.state.kits,
             image: this.state.image
         }
-        axios
+        Axios
             .post("/api/server/add",obj)
             .then(response => {
                 console.log(response.data)

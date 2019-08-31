@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./Servers.css";
 import axios from "axios";
 import Add from "./Add";
+// import Delete from './Delete'
 
 export default class Servers extends Component {
     constructor(props) {
@@ -46,43 +47,6 @@ export default class Servers extends Component {
             return(
 
                 <header className="background-2">
-                    {/* <section className="servers-list"> */}
-                        {/* <div className="server-1">
-                            <div className="server-title">
-                            <h1>---Blanks--- Server 1</h1>
-                            </div>
-                            <div className="information-kits">
-                            <button className="information-button">Information</button>
-                            <div className="kits">
-                            <button className="kits-button-2">Kits</button>
-                            </div>
-                            </div>
-                        </div> */}
-
-                        {/* <div className="server-2">
-                            <div className="server-title">
-                            <h1>---Blanks--- Server 2</h1>
-                            </div>
-                            <div className="information-kits">
-                            <button className="information-button">Information</button>
-                            <div className="kits">
-                            <button className="kits-button-2">Kits</button>
-                            </div>
-                            </div>
-                        </div> */}
-
-                        {/* <div className="server-3">
-                            <div className="server-title">
-                            <h1>---Blanks--- Server 3</h1>
-                            </div>
-                            <div className="information-kits">
-                            <button className="information-button">Information</button>
-                            <div className="kits">
-                            <button className="kits-button-2">Kits</button>
-                            </div>
-                            </div>
-                        </div> */}
-                    {/* </section> */}
                     <section>
                         {add}
                     </section>

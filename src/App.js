@@ -3,7 +3,7 @@ import './App.css';
 import Home from "./components/Home";
 import Servers from "./components/Servers"
 import Add from "./components/Add"
-
+// import Delete from "./components/Delete"
 
 class App extends React.Component {
   constructor(props) {
@@ -12,9 +12,11 @@ class App extends React.Component {
       section: "home",
       add: false,
       servers: []
+      // delete: []
     };
     this.updateAdd = this.updateAdd.bind(this);
     this.updateServers = this.updateServers.bind(this)
+    // this.updateDelete =this.updateDelete.bind(this)
   }
   updateAdd(){
     this.setState({add: !this.state.add})
@@ -23,6 +25,10 @@ class App extends React.Component {
   updateServers(servers){
     this.setState({servers: servers })
   }
+
+  // updateDelete(){
+  //   this.setState({delete: !this.state.delete})
+  // }
 
   render() {
     return (
