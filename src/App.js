@@ -11,12 +11,12 @@ class App extends React.Component {
     this.state = {
       section: "home",
       add: false,
-      servers: []
-      // delete: []
+      servers: [],
+      delete: false
     };
     this.updateAdd = this.updateAdd.bind(this);
     this.updateServers = this.updateServers.bind(this)
-    // this.updateDelete =this.updateDelete.bind(this)
+    this.updateDelete =this.updateDelete.bind(this)
   }
   updateAdd(){
     this.setState({add: !this.state.add})
@@ -26,9 +26,9 @@ class App extends React.Component {
     this.setState({servers: servers })
   }
 
-  // updateDelete(){
-  //   this.setState({delete: !this.state.delete})
-  // }
+  updateDelete(){
+    this.setState({delete: !this.state.delete})
+  }
 
   render() {
     return (

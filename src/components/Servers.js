@@ -8,7 +8,8 @@ export default class Servers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            servers: []
+            servers: [],
+            delete: []
         }
     }
 
@@ -16,6 +17,24 @@ export default class Servers extends Component {
     //     this.setState({ servers: servers });
     //   }
 
+    // deleteServers(){
+    //     let obj = {
+    //         name: this.state.title,
+    //         information: this.state.information,
+    //         kits: this.state.kits,
+    //         image: this.state.image
+    //     }
+    //     axios
+    //         .delete("/api/servers/delete",obj)
+    //         .then(response => {
+    //             console.log(response.data)
+    //             this.props.deleteServers(response.data)
+    //           })
+    //           .catch(err => {
+    //               console.log(err)
+    //         });
+    // }
+        
     componentDidMount() {
         axios
           .get("/api/servers")
@@ -40,6 +59,16 @@ export default class Servers extends Component {
                                 <a href={val.information} target="_blank"><button className="information-button">Information</button></a>
                                 <a href={val.kits} target="_blank"><button className="kits-button-2">Kits</button></a>
                             </div>
+                        </div>
+                        <div className="delete-button-file">
+                            <button onClick={e => {
+                                e.stopPropagation();
+                                axios.delete(`/api/servers/${this.props.index}`).then(response => {
+                                    this.props.updateServers(response.data);
+                                    console.log(this.props)
+                                });
+                                }}
+                            className="delete-button">Delete</button>
                         </div>
                     </section>
                 )

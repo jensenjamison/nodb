@@ -10,13 +10,13 @@ const addServers = (req, res) => {
     res.json(servers)
 }
 
-// const deleteServers = (req, res) => {
-//     servers.splice(+req.params.id, 1);
-//     res.json(servers);
-//   };
+const deleteServers = (req, res) => {
+    servers.splice(+req.params.id, 1);
+    res.json(servers);
+  };
 
 module.exports = {
     getServers,
-    addServers
-    // deleteServers
+    addServers,
+    deleteServers
 }
