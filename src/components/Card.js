@@ -25,14 +25,13 @@ render(){
             }}
 
             className="delete-button">Delete</button>
-            <button onClick={()=>{
+            <button className="edit-button" onClick={()=>{
                 axios.put(`/api/servers/${this.props.index}`, this.props.editData).then(response => {
                     console.log(response)
                     this.props.updateServers(response.data)
                 })
             }}>
-
-            Edit</button>
+                 Edit</button>
         </div>
     </section>
     )
