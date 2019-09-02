@@ -42,6 +42,7 @@ export default class Add extends Component {
         
 render(){
     console.log (this.state)
+    
     return(
         <section>
             <div className="form-1">

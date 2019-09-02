@@ -11,6 +11,7 @@ const addServers = (req, res) => {
 }
 
 const deleteServers = (req, res) => {
+    console.log(servers)
     servers.splice(+req.params.id, 1);
     res.json(servers);
   };

@@ -3,7 +3,7 @@ import './App.css';
 import Home from "./components/Home";
 import Servers from "./components/Servers"
 import Add from "./components/Add"
-// import Delete from "./components/Delete"
+import Axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,12 +12,20 @@ class App extends React.Component {
       section: "home",
       add: false,
       servers: [],
-      delete: false
+      delete: false,
     };
     this.updateAdd = this.updateAdd.bind(this);
     this.updateServers = this.updateServers.bind(this)
     this.updateDelete =this.updateDelete.bind(this)
   }
+
+  componentDidMount(){
+    Axios
+    .get("/api/servers").then((response) => {
+      this.updateServers(response.data)
+    })
+  }
+
   updateAdd(){
     this.setState({add: !this.state.add})
   }
@@ -26,11 +34,12 @@ class App extends React.Component {
     this.setState({servers: servers })
   }
 
-  updateDelete(){
-    this.setState({delete: !this.state.delete})
+  updateDelete(servers){
+    this.setState({delete: !this.state.delete, servers })
   }
 
   render() {
+    let {servers, section, add} = this.state
     return (
       <div>
         <nav className="nav-bar">
@@ -41,12 +50,12 @@ class App extends React.Component {
             <button className="contact-button">Contact</button>
           </div>
         </nav>
-          {this.state.section === "servers" ? <Servers updateAdd = {this.updateAdd} servers = {this.state.servers} /> : null}
-          {this.state.section === "home" ? (
+          {section === "servers" ? <Servers updateDelete = {this.updateDelete} updateAdd = {this.updateAdd} servers = {servers} /> : null}
+          {section === "home" ? (
           <Home changeSection={() => this.setState({ section: "servers" })} />
         ) : null}
 
-          {this.state.add === true ? <Add updateServers = {this.updateServers} /> : null}
+          {add === true ? <Add updateServers = {this.updateServers} /> : null}
           
       </div>
       

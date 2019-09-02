@@ -2,39 +2,15 @@ import React, {Component} from "react";
 import "./Servers.css";
 import axios from "axios";
 import Add from "./Add";
-// import Delete from './Delete'
 
 export default class Servers extends Component {
     constructor(props) {
         super(props);
         this.state = {
             servers: [],
-            delete: []
         }
     }
 
-    // updateServers(servers) {
-    //     this.setState({ servers: servers });
-    //   }
-
-    // deleteServers(){
-    //     let obj = {
-    //         name: this.state.title,
-    //         information: this.state.information,
-    //         kits: this.state.kits,
-    //         image: this.state.image
-    //     }
-    //     axios
-    //         .delete("/api/servers/delete",obj)
-    //         .then(response => {
-    //             console.log(response.data)
-    //             this.props.deleteServers(response.data)
-    //           })
-    //           .catch(err => {
-    //               console.log(err)
-    //         });
-    // }
-        
     componentDidMount() {
         axios
           .get("/api/servers")
@@ -47,9 +23,10 @@ export default class Servers extends Component {
         }
         render(){
             console.log(this.state.servers)
-        let add = this.props.servers.map(val => {
-                return(
-                    <section className="servers-folder">
+        let add = this.props.servers.map((val, index) => {
+            console.log(index)
+            return(
+                <section className="servers-folder">
                         <div className="servers-file">
                             <img src={val.image} className="image-servers-file"></img>
                             <div className="title-server-file">
@@ -63,11 +40,11 @@ export default class Servers extends Component {
                         <div className="delete-button-file">
                             <button onClick={e => {
                                 e.stopPropagation();
-                                axios.delete(`/api/servers/${this.props.index}`).then(response => {
-                                    this.props.updateServers(response.data);
-                                    console.log(this.props)
+                                axios.delete(`/api/servers/${index}`).then(response => {
+                                    console.log(response)
+                                    this.props.updateDelete(response.data);
                                 });
-                                }}
+                            }}
                             className="delete-button">Delete</button>
                         </div>
                     </section>
