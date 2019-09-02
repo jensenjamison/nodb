@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import "./Servers.css";
 import axios from "axios";
-import Add from "./Add";
+import Card from "./Card";
 
 export default class Servers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            servers: [],
+            servers: []
         }
     }
 
@@ -15,7 +15,7 @@ export default class Servers extends Component {
         axios
           .get("/api/servers")
           .then(response => {
-            this.setState({ servers: response.data });
+            this.setState({ servers: response.data});
           })
           .catch(err => {
               console.log(err)
@@ -25,29 +25,9 @@ export default class Servers extends Component {
             console.log(this.state.servers)
         let add = this.props.servers.map((val, index) => {
             console.log(index)
+            
             return(
-                <section className="servers-folder">
-                        <div className="servers-file">
-                            <img src={val.image} className="image-servers-file"></img>
-                            <div className="title-server-file">
-                            <h1>{val.name}</h1>
-                            </div>
-                            <div className="information-servers-file">
-                                <a href={val.information} target="_blank"><button className="information-button">Information</button></a>
-                                <a href={val.kits} target="_blank"><button className="kits-button-2">Kits</button></a>
-                            </div>
-                        </div>
-                        <div className="delete-button-file">
-                            <button onClick={e => {
-                                e.stopPropagation();
-                                axios.delete(`/api/servers/${index}`).then(response => {
-                                    console.log(response)
-                                    this.props.updateDelete(response.data);
-                                });
-                            }}
-                            className="delete-button">Delete</button>
-                        </div>
-                    </section>
+                <Card val={val} index={index} updateDelete={this.props.updateDelete} updateEdit={this.props.updateEdit} editData={this.props.editData} updateServers={this.props.updateServers}/>
                 )
             })
             return(

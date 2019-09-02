@@ -1,0 +1,18 @@
+
+body{
+    margin: 0px;
+}
+
+.contact-folder {
+height: 70vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0px
+}
+
+.contact-file {
+height: 200px;
+width: 600px;
+}

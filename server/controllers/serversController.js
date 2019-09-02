@@ -16,8 +16,14 @@ const deleteServers = (req, res) => {
     res.json(servers);
   };
 
+  const editServers = (req, res) => {
+      servers[+req.params.id] = req.body;
+    res.json(servers)
+  }
+
 module.exports = {
     getServers,
     addServers,
-    deleteServers
+    deleteServers,
+    editServers
 }

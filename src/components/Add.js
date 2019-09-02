@@ -47,10 +47,30 @@ render(){
         <section>
             <div className="form-1">
                 <form className="add-form-1">
-                    <input onChange = {(e) => this.setState({title: e.target.value}) } className="server-title-create" name = "server"  placeholder="Server Title" ></input>
-                    <input onChange = {(e) => this.setState({information: e.target.value})} name = "information" className="information-button-create" placeholder="Information Link Here"></input>
-                    <input onChange = {(e) => this.setState({kits: e.target.value})} name = "kits" className="kits-button-create" placeholder="Kits Link Here"></input>
-                    <input onChange = {(e) => this.setState({image: e.target.value})} name = "image" placeholder="Image Url Here" ></input>
+                    <input onChange = {(e) => this.setState({title: e.target.value}) || this.props.updateEdit({
+                        name: e.target.value,
+                        information: this.state.information,
+                        kits: this.state.kits,
+                        image: this.state.image
+                    }) } className="server-title-create" name = "server"  placeholder="Server Title" ></input>
+                    <input onChange = {(e) => this.setState({information: e.target.value}) || this.props.updateEdit({
+                        name: this.state.title,
+                        information: e.target.value,
+                        kits: this.state.kits,
+                        image: this.state.image
+                    })} name = "information" className="information-button-create" placeholder="Information Link Here"></input>
+                    <input onChange = {(e) => this.setState({kits: e.target.value}) || this.props.updateEdit({
+                        name: this.state.title,
+                        information: this.state.information,
+                        kits: e.target.value,
+                        image: this.state.image
+                    })} name = "kits" className="kits-button-create" placeholder="Kits Link Here"></input>
+                    <input onChange = {(e) => this.setState({image: e.target.value}) || this.props.updateEdit({
+                        name: this.state.title,
+                        information: this.state.information,
+                        kits: this.state.kits,
+                        image: e.target.value
+                    })} name = "image" placeholder="Image Url Here" ></input>
                 </form>
             </div>
             <div className="submit">
